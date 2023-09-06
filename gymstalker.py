@@ -6,7 +6,6 @@ import requests
 def save_data():
     # dt_now stores current time
     dt_now = datetime.datetime.now()
-    print("Current time: ", dt_now)
 
     # convert datetime to string
     dt_now_str = dt_now.strftime("%m/%d/%Y, %H:%M:%S")
@@ -18,16 +17,20 @@ def save_data():
 
 
 def obtain_data():
+    # URL to obtain data from
     url = "https://www.mysports.com/nox/public/v1/studios/1210009740/utilization/v2/active-checkin"
     
+    # headers to send with the request
     headers = {
         "Content-Type": "application/json",
         "x-tenant": "sportfabrik",
         "DNT": "1",
     }
-
+    
+    # send GET request to the URL with headers
     response = requests.get(url, headers=headers)
     
+    # convert response to JSON format and return the value of the "value" key
     return response.json()['value']
     
 save_data()
