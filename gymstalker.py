@@ -1,9 +1,7 @@
-import codecs
-import os
-from selenium import webdriver
 import csv
 import datetime
 import re
+import requests
 
 
 def save_data():
@@ -31,27 +29,11 @@ def save_data():
 
 
 def obtain_data():
-    driver = webdriver.Firefox()
+    url = "https://www.mysports.com/nox/public/v1/studios/1210009740/utilization/v2/active-checkin"
+    headers = {
+        "x-tenant": "sportfabrik",
+        "DNT": "1",
+    }
 
-    # Define the URL
-    url = "https://www.mysports.com/studio/c3BvcnRmYWJyaWs6MTIxMDAwOTc0MA%3D%3D"
-
-    # load the web page
-    driver.get(url)
-
-    # set maximum time to load the web page in seconds
-    driver.implicitly_wait(10)
-
-    n = os.path.join("C:/Users/morit/Downloads/", "Page.html")
-    # open file in write mode with encoding
-    f = codecs.open(n, "w", "utf−8")
-    # obtain page source
-    h = driver.page_source
-    # write page source content to file
-    f.write(h)
-    # close browser
-    driver.quit()
-
-
-obtain_data()
-save_data()
+    result = requests.get(url, headers=headers)
+    return result
