@@ -1,5 +1,5 @@
 """
-URL configuration for gymstalker project.
+URL configuration for webapp project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from gymstalker import views
+from webapp import views
 
 urlpatterns = [
-    path('', views.startseite),
+    path('', views.index),
 ]

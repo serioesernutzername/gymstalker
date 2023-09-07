@@ -1,7 +1,7 @@
 import requests
 import datetime
 import csv
-
+import os
 
 def obtain_data() -> int:
     # URL to obtain data from
@@ -20,7 +20,6 @@ def obtain_data() -> int:
     # convert response to JSON format and return the value of the "value" key
     return response.json()['value']
 
-
 def save_data() -> str:
     # dt_now stores current time
     dt_now = datetime.datetime.now()
@@ -33,13 +32,22 @@ def save_data() -> str:
     if not isinstance(visitors, int):
         return f'{dt_now_str}: An error occurred while querying the data'
 
+    # get current directory
+    path = os.getcwd()
+
+    # parent directory
+    parent = os.path.dirname(path)
+
     # append datetime string and gym occupation to csvfile
-    with open('data.csv', 'a', newline='') as csvfile:
+    with open(f'{parent}/data.csv', 'a', newline='') as csvfile:
         datawriter = csv.writer(csvfile, delimiter=',')
         datawriter.writerow([dt_now_str] + [visitors])
 
     # return current date and time and the number of visitors
     return f'{dt_now_str}: {visitors} Visitors'
 
+def main():
+    print(save_data())
 
-
+if __name__ == '__main__':
+    main()
