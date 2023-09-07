@@ -17,16 +17,22 @@ wget https://raw.githubusercontent.com/serioesernutzername/gymstalker/webserver/
 **Schritt 2**
 
 ```
-./setup.sh
+chmod 700 setup.sh
 ```
 
 **Schritt 3**
 
 ```
-./gymstalker/webscraper.sh
+./setup.sh
 ```
 
 **Schritt 4**
+
+```
+./gymstalker/webscraper.sh
+```
+
+**Schritt 5**
 
 ```
 python3 ./gymstalker/manage.py runserver
