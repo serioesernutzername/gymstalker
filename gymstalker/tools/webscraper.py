@@ -1,6 +1,7 @@
 import requests
 import datetime
 import csv
+import gymstalker.models
 
 
 def obtain_data() -> int:
@@ -29,17 +30,22 @@ def save_data() -> str:
     dt_now_str = dt_now.strftime("%m/%d/%Y, %H:%M:%S")
 
     # obtain current gym occupation
-    visitors = obtain_data()
-    if not isinstance(visitors, int):
+    currentvisitors = obtain_data()
+    if not isinstance(currentvisitors, int):
         return f'{dt_now_str}: An error occurred while querying the data'
 
     # append datetime string and gym occupation to csvfile
-    with open('data.csv', 'a', newline='') as csvfile:
-        datawriter = csv.writer(csvfile, delimiter=',')
-        datawriter.writerow([dt_now_str] + [visitors])
+    # with open('data.csv', 'a', newline='') as csvfile:
+    #     datawriter = csv.writer(csvfile, delimiter=',')
+    #     datawriter.writerow([dt_now_str] + [currentvisitors])
 
     # return current date and time and the number of visitors
-    return f'{dt_now_str}: {visitors} Visitors'
+    data = gymstalker.models.data_entry.objects.create(
+        date=dt_now,
+        visitors=currentvisitors
+    )
+    data.save()
+    return f'{dt_now_str}: {currentvisitors} Visitors'
 
 
 
