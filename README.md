@@ -29,11 +29,11 @@ chmod 700 setup.sh
 **Schritt 4**
 
 ```
-./gymstalker/webscraper.sh
+./webscraper.sh
 ```
 
 **Schritt 5**
 
 ```
-python3 ./gymstalker/manage.py runserver
+python3 manage.py runserver
 ```
