@@ -1,7 +1,6 @@
 import requests
 import datetime
 import csv
-import os
 
 
 def obtain_data() -> int:
