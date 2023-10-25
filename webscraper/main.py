@@ -20,7 +20,11 @@ def check_if_open() -> bool:
     response = requests.get(url, headers=headers)
 
     # convert response to JSON format and return the first value of the "current" key
-    return response.json()[0]['current']
+    # convert response to JSON format and return the first value of the "current" key
+    for x in range(len(response.json())):
+        if response.json()[x - 1]['current'] == True:
+            return True
+    return False
 
 def obtain_data() -> int:
     # URL to obtain data from
