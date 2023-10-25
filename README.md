@@ -26,12 +26,6 @@ chmod 700 setup.sh
 ./setup.sh
 ```
 
-**Schritt 4**
-
-```
-./webscraper.sh
-```
-
 **Schritt 5**
 
 ```
