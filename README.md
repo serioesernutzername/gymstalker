@@ -8,25 +8,25 @@ Sammelt die Besucherzahlen der [Sportfabrik Bonn-Beuel](https://www.mysports.com
 
 ## Installation
 
-**Schritt 1**
+### Schritt 1
+
+Skript für das Einrichten der Anwendung herunterladen:
 
 ```
-wget https://raw.githubusercontent.com/serioesernutzername/gymstalker/webserver/setup.sh
+wget https://raw.githubusercontent.com/serioesernutzername/gymstalker/webserver/setup.sh && chmod 700 setup.sh
 ```
 
-**Schritt 2**
+### Schritt 2
 
-```
-chmod 700 setup.sh
-```
-
-**Schritt 3**
+Anwendung installieren, einrichten und ausführen:
 
 ```
 ./setup.sh
 ```
 
-**Schritt 4**
+### Schritt 3 (optional)
+
+Starten des Webservers für eine Benutzeroberfläche zur grafischen Darstellung der gesammelten Besucherzahlen:
 
 ```
 python3 manage.py runserver
