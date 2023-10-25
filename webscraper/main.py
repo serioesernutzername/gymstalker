@@ -7,7 +7,7 @@ import time
 
 def check_if_open() -> bool:
     # URL to obtain current state from
-    url = "https://www.mysports.com/nox/public/v1/studios/1210009740/utilization/reveal"
+    url = "https://www.mysports.com/nox/public/v1/studios/1210009740/utilization/v2/today"
 
     # headers to send with the request
     headers = {
@@ -19,8 +19,8 @@ def check_if_open() -> bool:
     # send GET request to the URL with headers
     response = requests.get(url, headers=headers)
 
-    # convert response to JSON format and return the value of the "value" key
-    return response.json()['value']
+    # convert response to JSON format and return the first value of the "current" key
+    return response.json()[0]['current']
 
 def obtain_data() -> int:
     # URL to obtain data from
