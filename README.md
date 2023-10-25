@@ -26,7 +26,7 @@ chmod 700 setup.sh
 ./setup.sh
 ```
 
-**Schritt 5**
+**Schritt 4**
 
 ```
 python3 manage.py runserver
