@@ -1,7 +1,8 @@
 import requests
 import datetime
 import csv
-
+import schedule
+import time
 
 def obtain_data() -> int:
     # URL to obtain data from
@@ -42,8 +43,16 @@ def save_data() -> str:
     return f'{dt_now_str}: {visitors} Visitors'
 
 
-def main():
+def job():
     print(save_data())
+
+
+def main():
+    job()
+    schedule.every(15).minutes.do(job)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 
 if __name__ == '__main__':
