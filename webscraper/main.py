@@ -56,7 +56,7 @@ def data_retrieve_percentage() -> int:
     """ Retrieve the current capacity utilization in percent. """
 
     # URL to obtain data from
-    url = "	https://www.mysports.com/nox/public/v1/studios/1210009740/utilization/v2/today"
+    url = "https://www.mysports.com/nox/public/v1/studios/1210009740/utilization/v2/today"
 
     # get HTTP response
     response = data_retrieve(url)
