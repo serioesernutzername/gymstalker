@@ -121,6 +121,10 @@ def main():
     schedule.every().hour.at(":30").do(job)
     schedule.every().hour.at(":45").do(job)
 
+    # print feedback to the console
+    print('Beginning to collect visitor information from'
+        + 'https://www.mysports.com/studio/c3BvcnRmYWJyaWs6MTIxMDAwOTc0MA%3D%3D ...')
+
     # loop so that the scheduling tasks keep on running all time
     while True:
         # checks whether a scheduled task is pending to run or not
