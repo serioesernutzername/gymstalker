@@ -1,6 +1,7 @@
 
 if git clone https://github.com/serioesernutzername/gymstalker.git ; then
   cd ./gymstalker/
+  rm setup.sh
   if pip install -r ./requirements.txt; then
     clear
     echo "Webscraper successfully installed! Please wait..."
